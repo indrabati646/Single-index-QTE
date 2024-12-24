@@ -115,8 +115,7 @@ mainf <- function(i){
   y_star <- y-splineDesign(x=z%*%beta2h[,j],knots=sort(z%*%beta2h[,j])[knots],ord=4, derivs=0,
                            outer.ok = T)%*%delta[j ,23:44]
   x_star <- x%*%beta1h[,j]
-  #h_tau <- dpill(x_star,y_star)*(tau*(1-tau)/(dnorm(qnorm(0.5)^2)))^0.2
-  h_tau <- 0.34
+  h_tau <- dpill(x_star,y_star)*(tau*(1-tau)/(dnorm(qnorm(0.5)^2)))^0.2
   g1 <- splineDesign(x=x%*%beta1h[,j],knots=sort(x%*%beta1h[,j])[knots],ord=4, derivs=0,
                      outer.ok = T)%*%delta[j,1:22]
   for(i in 1:length(x1g)){
